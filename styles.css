@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 284px;
+    margin-bottom: 300px;
+    margin: 150px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    background-color: #eee;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    width: 30px;
+    height: 30px;
+}
+
+h1 {
+    color: #333;
+}
+
+#sudoku-board {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(9, 30px);
+    grid-template-rows: repeat(9, 30px);
+    gap: 1px;
+    margin: 20px auto;
+    border: 2px solid #333;
+}
+
+.sudoku-grid {
+    position: relative;
+}
+
+.sudoku-grid::before,
+.sudoku-grid::after {
+    content: "";
+    position: absolute;
+    background-color: #333;
+}
+
+.sudoku-grid::before {
+    top: 0;
+    left: 100px;
+    width: 6px; /* Adjusted thickness of vertical lines */
+    height: 270px;
+}
+
+.sudoku-grid::after {
+    top: 90px;
+    left: 0;
+    width: 270px;
+    height: 6px; /* Adjusted thickness of horizontal lines */
+}
+
+.cell {
+    /* Add border color to create a clearer outline */
+    border: 1px solid #ccc;
+}
+
+/* Add border color to cells on the right and bottom edges of each subgrid */
+.cell.cell-0-2, .cell.cell-1-2, .cell.cell-3-2, .cell.cell-4-2, .cell.cell-6-2, .cell.cell-7-2 {
+    border-right: 2px solid #333;
+}
+
+.cell.cell-2-0, .cell.cell-2-1, .cell.cell-2-3, .cell.cell-2-4, .cell.cell-2-6, .cell.cell-2-7 {
+    border-bottom: 2px solid #333;
+}
+
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.cell.selected {
+    background-color: #ffecb3;
+}
+
+.cell.invalid {
+    background-color: #ffcccb;
+}
